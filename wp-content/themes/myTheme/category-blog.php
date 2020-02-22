@@ -2,7 +2,7 @@
 
 <section class="page-wrap">
   <div class="container">
-    THIS IS THE CATEGORY BLOG TEMPLATE
+    <h1><?= single_cat_title() ?></h1>
 
     <?php get_template_part( 'includes/section', 'archive' ) ?>
 
