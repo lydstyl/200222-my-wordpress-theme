@@ -2,6 +2,10 @@
 
   <div class="card mb-3">
     <div class="card-body">
+      <?php if(has_post_thumbnail()): ?>
+        <img src="<?= the_post_thumbnail_url('blog-small') ?>" alt="<?= the_title() ?>" class="img-fluid mb-3 img-thumbnail">
+      <?php endif; ?>
+
       <h2><?php the_title(); ?></h2>
     
       <?php the_excerpt(); ?>
