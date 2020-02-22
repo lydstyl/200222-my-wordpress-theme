@@ -2,6 +2,8 @@
 
 <section class="page-wrap">
   <div class="container">
+    THIS IS THE CATEGORY BLOG TEMPLATE
+
     <?php get_template_part( 'includes/section', 'archive' ) ?>
 
     <?php 
