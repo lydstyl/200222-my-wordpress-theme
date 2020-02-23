@@ -68,3 +68,37 @@ function my_sidebars()
 }
 
 add_action('widgets_init', 'my_sidebars');
+
+
+// Custom Post Types
+function my_first_post_type()
+{
+  $args = array(
+    'labels' => array('name' => 'Cars', 'singula_name', 'Car'),
+    'hierarchical' => true, // true like pages false like posts
+    'public' => true,
+    'has_archive' => true,
+    // 'supports' => array('title', 'thumbnail'),
+    'supports' => array('title', 'editor', 'thumbnail'),
+    //'rewrite' => array('slug' => 'cars'),
+    'menu_icon' => 'dashicons-images-alt2' // https://developer.wordpress.org/resource/dashicons/#images-alt2
+  );
+
+  register_post_type( 'cars', $args ); // it use single-cars.php or single.php
+}
+
+add_action('init', 'my_first_post_type');
+
+
+function my_first_taxonomy()
+{
+  $args = array(
+    'public' => true,
+    'labels' => array('name' => 'Brands', 'singula_name', 'Brand'),
+    'hierarchical' => false, // true like a categorie, false like a tag
+  );
+
+  register_taxonomy( 'brands', array('cars'), $args ); // you have to save permalinks to refresh them so it can work
+}
+
+add_action('init', 'my_first_taxonomy');
