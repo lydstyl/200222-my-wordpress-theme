@@ -2,9 +2,9 @@
 
 <section class="page-wrap">
   <div class="container">
-    <h1><?= single_cat_title() ?></h1>
+    <h1>Search Results for "<?= get_search_query() ?>"</h1>
 
-    <?php get_template_part( 'includes/section', 'archive' ) ?>
+    <?php get_template_part( 'includes/section', 'searchresults' ) ?>
 
     <?php 
       global $wp_query;
