@@ -2,22 +2,33 @@
 
 <section class="page-wrap">
   <div class="container">
-    <h1><?= single_cat_title() ?></h1>
+    <section class="row">
+      <div class="col-lg-3">
+        <?php if( is_active_sidebar( 'blog-sidebar' ) ): ?>
 
-    <?php get_template_part( 'includes/section', 'archive' ) ?>
+          <?php dynamic_sidebar( 'blog-sidebar' ) ?>
+        <?php endif; ?>
+      </div>
+      
+      <div class="col-lg-9">
+        <h1><?= single_cat_title() ?></h1>
 
-    <?php 
-      global $wp_query;
+        <?php get_template_part( 'includes/section', 'archive' ) ?>
 
-      $big = 999999999; // need an unlikely integer
+        <?php 
+          global $wp_query;
 
-      echo paginate_links( array(
-        'base' => str_replace( $big, '%#%', esc_url( get_pagenum_link( $big ))),
-        'formal' => '?paged=%#%',
-        'current' => max( 1, get_query_var('paged')),
-        'total' => $wp_query->max_num_pages,
-      ));
-    ?>
+          $big = 999999999; // need an unlikely integer
+
+          echo paginate_links( array(
+            'base' => str_replace( $big, '%#%', esc_url( get_pagenum_link( $big ))),
+            'formal' => '?paged=%#%',
+            'current' => max( 1, get_query_var('paged')),
+            'total' => $wp_query->max_num_pages,
+          ));
+        ?>
+      </div>
+    </section>
   </div>
 </section>
 <?php get_footer( ); ?>
