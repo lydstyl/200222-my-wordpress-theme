@@ -9,14 +9,8 @@
     <?php endif; ?>
 
     <ul>
-
-      <?php if(get_post_meta( $post->ID, 'Color', true )): ?>
-        <li>Color: <?= get_post_meta( $post->ID, 'Color', true ) ?></li>
-      <?php endif; ?>
-
-      <?php if(get_post_meta( $post->ID, 'Registration', true )): ?>
-        <li>Registration: <?= get_post_meta( $post->ID, 'Registration', true ) ?></li>
-      <?php endif; ?>
+        <li>Color: <?= the_field( 'colour' ) ?></li>
+        <li>Registration: <?= the_field( 'registration' ) ?></li>
     </ul>
 
 
