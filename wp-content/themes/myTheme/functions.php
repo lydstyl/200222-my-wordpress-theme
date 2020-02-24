@@ -79,7 +79,7 @@ function my_first_post_type()
     'public' => true,
     'has_archive' => true,
     // 'supports' => array('title', 'thumbnail'),
-    'supports' => array('title', 'editor', 'thumbnail'),
+    'supports' => array('title', 'editor', 'thumbnail', 'custom-fields'),
     //'rewrite' => array('slug' => 'cars'),
     'menu_icon' => 'dashicons-images-alt2' // https://developer.wordpress.org/resource/dashicons/#images-alt2
   );
@@ -95,7 +95,7 @@ function my_first_taxonomy()
   $args = array(
     'public' => true,
     'labels' => array('name' => 'Brands', 'singula_name', 'Brand'),
-    'hierarchical' => false, // true like a categorie, false like a tag
+    'hierarchical' => true, // true like a categorie, false like a tag
   );
 
   register_taxonomy( 'brands', array('cars'), $args ); // you have to save permalinks to refresh them so it can work
