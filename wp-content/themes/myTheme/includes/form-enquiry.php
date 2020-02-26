@@ -42,6 +42,7 @@
       var formdata = new FormData;
 
       formdata.append('action', 'enquiry'); // WP will try to find a function named 'enquiry'
+      formdata.append('nonce', '<?= wp_create_nonce( 'my-super-ajax-nonce' ) ?>'); // to be sure it is from the website and not from for exemple Postman
       formdata.append('enquiry', form);
 
       console.log(formdata);

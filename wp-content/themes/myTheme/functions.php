@@ -108,6 +108,12 @@ add_action('wp_ajax_enquiry', 'enquiry_form'); // wp_ajax is the hook and enquir
 add_action('wp_ajax_nopriv_enquiry', 'enquiry_form'); // when not loged in
 function enquiry_form()
 {
+  if( !wp_verify_nonce( $_POST['nonce'], 'my-super-ajax-nonce' ) ) //       formdata.append('nonce', '<?= wp_create_nonce( 'my-super-ajax-non ...
+  {
+    wp_send_json_error('Nonce is incorrect', 401);
+    die();
+  }
+
   $formdata = [];
 
   wp_parse_str( $_POST['enquiry'], $formdata );
