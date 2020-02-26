@@ -8,6 +8,10 @@
       <img src="<?= the_post_thumbnail_url('blog-large') ?>" alt="<?= the_title() ?>" class="img-fluid mb-3 img-thumbnail">
     <?php endif; ?>
 
+    <p>
+        <?php get_template_part( 'includes/form', 'enquiry' ) ?>
+    </p>
+
     <ul>
         <li>Color: <?= the_field( 'colour' ) ?></li>
         <li>Registration: <?= the_field( 'registration' ) ?></li>
