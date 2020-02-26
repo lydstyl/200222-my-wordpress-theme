@@ -149,3 +149,16 @@ function enquiry_form()
 
   wp_send_json_success( $formdata['fname'] );
 }
+
+add_action('phpmailer_init', 'custom_mailer');
+function custom_mailer( PHPMailer $phpmailer )
+{
+  $phpmailer->SetFrom('lydstyl@gmail.com', 'Gabriel Brun');
+  $phpmailer->Host = 'email-smtp.us-west-2.amazonaws.com';
+  $phpmailer->Port = 587;
+  $phpmailer->SMTPAuth= true;
+  $phpmailer->SMTPSecure= 'tls';
+  $phpmailer->Username= SMTM_LOGIN; // define('SMTP_LOGIN', 'xxx'); // in wp_config.php
+  $phpmailer->Password= SMTM_PASSWORD;
+  $phpmailer->IsSMTP();
+}
